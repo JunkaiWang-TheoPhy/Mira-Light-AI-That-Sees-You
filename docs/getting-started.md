@@ -3,8 +3,8 @@
 ## 一键安装
 
 ```bash
-cd Mira_Light_Released_Version
-bash scripts/one_click_install.sh
+cd Mira-Light-AI-That-Sees-You
+bash scripts/setup_local_env.sh
 ```
 
 或者：
@@ -12,6 +12,8 @@ bash scripts/one_click_install.sh
 ```bash
 npm run bootstrap
 ```
+
+如果你只是想稳定地走仓库自己的 `.venv`，优先使用 `setup_local_env.sh`。
 
 ## 前置条件
 
@@ -53,6 +55,22 @@ browser
 - [release-network-diagnostics.md](./release-network-diagnostics.md)
 
 ## 最快启动路径
+
+### 0. 最省心的常用入口
+
+```bash
+bash scripts/setup_local_env.sh
+bash scripts/start_mock_console.sh
+```
+
+这两个入口只是薄包装：
+
+- `setup_local_env.sh`
+  优先选择本机可用的 `python3.11 / python3.10`，并复用现有安装逻辑把依赖装进仓库自己的 `.venv`
+- `start_mock_console.sh`
+  一键拉起 `mock lamp + local bridge + director console`
+
+它们不会替代现有的 `one_click_install.sh`、`start_local_stack.sh`、`start_director_console.sh`，只是把最常见路径收成更容易复用的入口。
 
 ### 1. 先跑离线 preflight
 
@@ -116,6 +134,12 @@ bash scripts/smoke_local_stack.sh
 http://127.0.0.1:8765/
 ```
 
+如果你走的是 mock 演示路径，也可以直接运行：
+
+```bash
+bash scripts/start_mock_console.sh
+```
+
 ## 分开启动时的对应命令
 
 ### 启动本地 bridge
@@ -128,6 +152,12 @@ bash tools/mira_light_bridge/start_bridge.sh
 
 ```bash
 bash scripts/start_director_console.sh
+```
+
+### 一键启动 mock 导演台
+
+```bash
+bash scripts/start_mock_console.sh
 ```
 
 ### 启动最简 receiver

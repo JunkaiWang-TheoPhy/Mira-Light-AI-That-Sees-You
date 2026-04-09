@@ -127,7 +127,7 @@ The shortest local path is:
 
 ```bash
 cd Mira-Light-AI-That-Sees-You
-bash scripts/one_click_install.sh
+bash scripts/setup_local_env.sh
 ```
 
 Then run the release preflight:
@@ -145,8 +145,8 @@ bash scripts/start_local_stack.sh
 If you want a mock-first rehearsal path, you can now use:
 
 ```bash
-# start the mock lamp
-bash scripts/run_mock_lamp.sh
+# shortest mock director-console path
+bash scripts/start_mock_console.sh
 
 # run a quick offline rehearsal
 bash scripts/run_mira_light_offline_rehearsal.sh --mode quick
@@ -167,12 +167,24 @@ If you are working with real hardware, set the lamp base URL before starting:
 export MIRA_LIGHT_LAMP_BASE_URL=http://172.20.10.3
 ```
 
+If you only want the most common local demo path, use:
+
+```bash
+bash scripts/setup_local_env.sh
+bash scripts/start_mock_console.sh
+```
+
+These are thin wrappers. They do not replace the existing core scripts; they
+just make it easier to stay on the repo-local `.venv` and bring up the
+`mock lamp + bridge + director console` stack in one step.
+
 Useful follow-up runbooks:
 
 - [docs/mira-light-mock-rehearsal-guide.md](./docs/mira-light-mock-rehearsal-guide.md)
 - [docs/mira-light-live-follow-demo-runbook.md](./docs/mira-light-live-follow-demo-runbook.md)
 - [docs/mira-light-offline-validation-stack.md](./docs/mira-light-offline-validation-stack.md)
 - [docs/openclaw-local-audio-tts.md](./docs/openclaw-local-audio-tts.md)
+- [docs/Guide/README.md](./docs/Guide/README.md)
 
 ## Key Files
 
@@ -202,10 +214,13 @@ with:
 - [docs/release-demo-readiness-checklist.md](./docs/release-demo-readiness-checklist.md)
 - [docs/release-live-execution-checklist.md](./docs/release-live-execution-checklist.md)
 - [docs/release-sync-from-mira-light-released-version-2026-04-09.md](./docs/release-sync-from-mira-light-released-version-2026-04-09.md)
+- [docs/Guide/README.md](./docs/Guide/README.md)
 
 Additional entry points added in this incremental sync:
 
 - [scripts/run_mock_lamp.sh](./scripts/run_mock_lamp.sh)
+- [scripts/setup_local_env.sh](./scripts/setup_local_env.sh)
+- [scripts/start_mock_console.sh](./scripts/start_mock_console.sh)
 - [scripts/run_mira_light_offline_rehearsal.sh](./scripts/run_mira_light_offline_rehearsal.sh)
 - [scripts/run_mira_light_live_follow_demo.sh](./scripts/run_mira_light_live_follow_demo.sh)
 - [scripts/scene_trace_recorder.py](./scripts/scene_trace_recorder.py)

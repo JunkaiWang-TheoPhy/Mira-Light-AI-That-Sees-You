@@ -194,6 +194,7 @@ Mira Light 在展位上的演示，不是简单地播放一套预设动作，而
 
 - [docs/mira-light-booth-scene-table.md](./docs/mira-light-booth-scene-table.md)
 - [docs/release-scene-bundles.md](./docs/release-scene-bundles.md)
+- [docs/Guide/README.md](./docs/Guide/README.md)
 - [scripts/scenes.py](./scripts/scenes.py)
 
 ## 系统架构
@@ -239,7 +240,7 @@ camera input
 
 ```bash
 cd Mira-Light-AI-That-Sees-You
-bash scripts/one_click_install.sh
+bash scripts/setup_local_env.sh
 ```
 
 或者：
@@ -247,6 +248,15 @@ bash scripts/one_click_install.sh
 ```bash
 npm run bootstrap
 ```
+
+如果你只是想快速进入最常用的本地演示路径，推荐直接：
+
+```bash
+bash scripts/setup_local_env.sh
+bash scripts/start_mock_console.sh
+```
+
+这两层是薄包装，不会替代现有核心入口，只是帮你稳定地走仓库自己的 `.venv`，并一键拉起 `mock lamp + bridge + director console`。
 
 ### 2. 先跑离线 preflight
 
@@ -282,8 +292,8 @@ bash scripts/start_local_stack.sh
 ### 7. 如果要直接跑 mock / 排练 / 真人跟随 demo
 
 ```bash
-# 启动 mock 灯
-bash scripts/run_mock_lamp.sh
+# 最短 mock 导演台路径
+bash scripts/start_mock_console.sh
 
 # 跑 quick offline rehearsal
 bash scripts/run_mira_light_offline_rehearsal.sh --mode quick
@@ -298,6 +308,7 @@ bash scripts/run_mira_light_live_follow_demo.sh --mock-device --dry-run
 - [docs/mira-light-live-follow-demo-runbook.md](./docs/mira-light-live-follow-demo-runbook.md)
 - [docs/mira-light-offline-validation-stack.md](./docs/mira-light-offline-validation-stack.md)
 - [docs/openclaw-local-audio-tts.md](./docs/openclaw-local-audio-tts.md)
+- [docs/Guide/README.md](./docs/Guide/README.md)
 
 ## 与云端 Mira 的关系
 
@@ -343,6 +354,7 @@ mira-light-bridge
 
 - `docs/`
   架构、场景、runbook、handoff、integration 文档
+  其中 [docs/Guide/README.md](./docs/Guide/README.md) 汇总了偏现场操作的精简指南
 
 - `fixtures/`
   视觉事件与测试 fixtures
@@ -363,6 +375,12 @@ mira-light-bridge
 
 - [scripts/run_mock_lamp.sh](./scripts/run_mock_lamp.sh)
   启动本地 mock 灯，覆盖 `headCapacitive` 和 `40` 灯 `pixelSignals`
+
+- [scripts/setup_local_env.sh](./scripts/setup_local_env.sh)
+  优先选择可用的 `python3.11 / python3.10`，并复用现有安装逻辑创建仓库自己的 `.venv`
+
+- [scripts/start_mock_console.sh](./scripts/start_mock_console.sh)
+  一键拉起 `mock lamp + bridge + director console`
 
 - [scripts/run_mira_light_offline_rehearsal.sh](./scripts/run_mira_light_offline_rehearsal.sh)
   启动 quick / full 两档离线排练

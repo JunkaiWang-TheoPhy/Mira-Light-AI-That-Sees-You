@@ -13,10 +13,25 @@ An embodied AI companion that notices you before you ask.
 - `Embodied interaction`：让感知、判断与回应发生在真实空间里，而不只是在聊天框中
 - `End-to-end system`：从 vision 到 runtime 到 bridge 到 console 的完整可运行链路
 - `Extensible memory path`：支持把部分 scene/device outcome 写回云端 `memory-context`
+- `Release-ready ops`：补齐了预录主持词、本地 `say` 回退、统一信号口径与 mock/真机切换说明
 
 ---
 
 ## 中文
+
+### 本次同步重点
+
+这次同步进来的不是新的视觉花样，而是更适合长期保留的“发行级”能力：
+
+- 主持词与关键台词优先走本地预录音频，没命中时再回退到本机 `say`
+- `9527` 舵机帧、`pixelSignals` 和 `headCapacitive` 的职责边界更清楚
+- mock 排练、离线验证和真机切换的路径更容易理解
+
+如果你想先快速看这次同步到底带来了什么，建议先读：
+
+- [Release Integration Summary (2026-04-09)](./docs/release-2026-04-09-integration-summary.md)
+- [High-Value Updates from the Last 6 Hours](./docs/Guide/06-2026-04-09最近6小时高价值更新.md)
+- [Unified Signal Delivery Format](./docs/Guide/09-Mira%20Light统一信号交付格式说明.md)
 
 Mira Light: AI That Sees You 是一个具身化 AI 交互项目。它尝试把“看见你、理解你、回应你”从屏幕里的聊天框，带到真实空间中的一盏四自由度智能灯上。
 
@@ -172,8 +187,9 @@ Mira Light: AI That Sees You 在展位上的演示，不是简单地播放一套
 - 导演台已包含图形化 mock 面板，可直接查看 `headCapacitive` 与 `40` 灯 `pixelSignals`
 - 支持本地 `mock lamp`、offline rehearsal、scene trace 和视觉 replay bench
 - 支持真人跟随 `live-follow demo`，可直接挂接 receiver / captures 链路
-- 支持本地音频 cue、TTS 播放链路，以及蓝牙音箱演示路径
+- 支持本地音频 cue、预录主持词、本机 `say` 回退，以及蓝牙音箱演示路径
 - bridge / runtime 已具备控制安全层，对 pose 和 servo 控制做 `clamp / reject`
+- 已补齐 `9527` raw TCP 舵机帧、`pixelSignals` 与 `headCapacitive` 的统一说明
 
 ## 代表性场景
 
@@ -304,6 +320,7 @@ bash scripts/run_mira_light_live_follow_demo.sh --mock-device --dry-run
 
 推荐继续阅读：
 
+- [docs/release-2026-04-09-integration-summary.md](./docs/release-2026-04-09-integration-summary.md)
 - [docs/mira-light-mock-rehearsal-guide.md](./docs/mira-light-mock-rehearsal-guide.md)
 - [docs/mira-light-live-follow-demo-runbook.md](./docs/mira-light-live-follow-demo-runbook.md)
 - [docs/mira-light-offline-validation-stack.md](./docs/mira-light-offline-validation-stack.md)

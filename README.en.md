@@ -13,10 +13,28 @@ An embodied AI companion that notices you before you ask.
 - `Embodied interaction`: AI moves from the chat window into real-space interaction
 - `End-to-end system`: A runnable loop across vision, runtime, bridge, and console
 - `Extensible memory path`: Selected scene and device outcomes can be written back into cloud memory
+- `Release-ready ops`: Local prerecorded speech, `say` fallback, clearer signal contracts, and cleaner mock-to-live paths
 
 ---
 
 ## Overview
+
+### What This Sync Adds
+
+The latest sync does not primarily add more visual flair. It adds the parts that
+are most worth keeping as release-grade behavior:
+
+- host lines and key scene lines now prefer bundled prerecorded speech assets
+- unmatched lines can fall back to local `say`
+- the repository now explains more clearly how raw TCP servo frames, `pixelSignals`,
+  and `headCapacitive` fit together
+- mock rehearsal, offline validation, and live-hardware handoff are documented more cleanly
+
+If you want the shortest path to what changed, start with:
+
+- [Release Integration Summary (2026-04-09)](./docs/release-2026-04-09-integration-summary.md)
+- [High-Value Updates from the Last 6 Hours](./docs/Guide/06-2026-04-09%E6%9C%80%E8%BF%916%E5%B0%8F%E6%97%B6%E9%AB%98%E4%BB%B7%E5%80%BC%E6%9B%B4%E6%96%B0.md)
+- [Unified Signal Delivery Format](./docs/Guide/09-Mira%20Light%E7%BB%9F%E4%B8%80%E4%BF%A1%E5%8F%B7%E4%BA%A4%E4%BB%98%E6%A0%BC%E5%BC%8F%E8%AF%B4%E6%98%8E.md)
 
 Mira Light: AI That Sees You is an embodied AI interaction project built around a four-DOF lamp.
 It explores a simple shift in interaction design: instead of waiting for an
@@ -94,8 +112,9 @@ At the moment, the repository already supports a real working loop:
 - providing a graphical director-console mock panel for `headCapacitive` and `40`-pixel `pixelSignals`
 - supporting local mock-lamp rehearsal, scene trace export, and vision replay bench tooling
 - supporting a live-follow demo path that can attach to the receiver / captures pipeline
-- supporting local audio cues, TTS playback, and Bluetooth-speaker demo routing
+- supporting local audio cues, bundled prerecorded speech, local `say` fallback, and Bluetooth-speaker demo routing
 - enforcing runtime / bridge safety decisions with clamp-or-reject behavior for control payloads
+- documenting the unified signal contract across raw TCP servo frames, `pixelSignals`, and `headCapacitive`
 
 ## Core Loop
 
@@ -180,6 +199,7 @@ just make it easier to stay on the repo-local `.venv` and bring up the
 
 Useful follow-up runbooks:
 
+- [docs/release-2026-04-09-integration-summary.md](./docs/release-2026-04-09-integration-summary.md)
 - [docs/mira-light-mock-rehearsal-guide.md](./docs/mira-light-mock-rehearsal-guide.md)
 - [docs/mira-light-live-follow-demo-runbook.md](./docs/mira-light-live-follow-demo-runbook.md)
 - [docs/mira-light-offline-validation-stack.md](./docs/mira-light-offline-validation-stack.md)

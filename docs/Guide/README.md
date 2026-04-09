@@ -1,4 +1,4 @@
-# Mira Light: AI That Sees You 操作指南
+# Mira Light: AI That Sees You Operational Guide
 
 这组文档用于集中放置 `Mira Light` 当前和现场操作直接相关的精简说明。
 
@@ -17,6 +17,8 @@
 3. [实时语音常见问题排查](./03-实时语音常见问题排查.md)
 4. [9527 总线舵机 TCP 帧协议与仓库对齐说明](./04-9527总线舵机TCP帧协议与仓库对齐说明.md)
 5. [CV 上展补强与验收路线](./05-CV上展补强与验收路线.md)
+6. [High-Value Updates from the Last 6 Hours](./06-2026-04-09最近6小时高价值更新.md)
+7. [Unified Signal Delivery Format](./09-Mira%20Light统一信号交付格式说明.md)
 
 ## 说明
 

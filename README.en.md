@@ -6,57 +6,91 @@
 
 **Tagline**
 
-AI that sees you first.
+An embodied AI companion that notices you before you ask.
 
-**Proof Points**
+**Highlights**
 
-- `Innovation`: AI moved from the chat window into embodied interaction in real space
-- `Completion`: An end-to-end runnable loop across vision, runtime, bridge, and console
-- `Technical Difficulty`: Single-camera event extraction, four-DOF hardware control, and embodied memory integration
+- `Embodied interaction`: AI moves from the chat window into real-space interaction
+- `End-to-end system`: A runnable loop across vision, runtime, bridge, and console
+- `Extensible memory path`: Selected scene and device outcomes can be written back into cloud memory
 
 ---
 
-Most AI waits for your prompt.
+## Overview
 
-Mira Light sees you first.
+Mira Light is an embodied AI interaction project built around a four-DOF lamp.
+It explores a simple shift in interaction design: instead of waiting for an
+explicit prompt, the system notices presence, interprets movement and context,
+and responds through motion, direction, light, and rhythm.
 
-This is not another chatbot wrapped in hardware.
+This repository is not just a concept sketch or a visual mockup. It contains a
+working chain across:
 
-It is an embodied AI lamp that wakes up when you arrive, studies you when you pause, follows you when you move, responds with emotion when you interact, and watches you go when you leave.
+- camera input
+- event extraction
+- scene selection
+- lamp runtime control
+- bridge and safety boundaries
+- optional memory writeback into cloud Mira
 
-Mira Light turns perception into motion, light, and presence.
+The project is best understood as a physical companion prototype rather than a
+smart lamp feature demo.
 
 ## One-Line Project Intro
 
-Mira Light turns AI from a passive interface into a physical companion that notices you, follows you, responds to you, and expresses care in real space.
+Mira Light turns AI from a passive interface into a physical companion that can
+notice you, interpret interaction context, and respond in real space through
+light and movement.
 
-## Why It Hits Fast
+## What The Demo Feels Like
 
-- You understand it in seconds
-- You remember it because it is physical
-- You feel the product before anyone explains the tech
-
-This is what "AI That Sees You" looks like when it leaves the screen.
-
-## Demo Arc
+If you stand in front of the demo, the intended interaction is simple:
 
 1. You approach. It wakes.
-2. You pause. It studies you.
+2. You pause. It turns toward you.
 3. You move. It follows.
-4. You engage. It responds.
-5. You leave. It watches you go.
+4. You engage. It shifts tone or motion.
+5. You leave. It watches you go and settles back down.
 
-Not automation.
+The point is not motion in isolation. The point is that the motion appears to
+be grounded in perception and timing rather than in random playback.
 
-Presence.
+## Why This Project Matters
 
-## Why It Works For Hackathon Judging
+The project is trying to move AI interaction from:
 
-- Clear in seconds at an Expo booth
-- Strong physical storytelling from perception to response
-- Real hardware + runtime + bridge + tests + rehearsal stack
-- Commercially extensible into companion devices and ambient intelligence
-- Technically non-trivial across vision, scene orchestration, hardware control, and memory integration
+```text
+input -> answer
+```
+
+toward:
+
+```text
+notice -> interpret -> respond
+```
+
+That matters because:
+
+- the system no longer has to wait for a command before it becomes relevant
+- response is no longer limited to text or voice
+- interaction becomes part of the surrounding physical space
+
+Mira Light is not simply arguing that “AI can control hardware.”  
+It is exploring what happens when AI starts to behave less like a utility panel
+and more like a low-disturbance companion with presence.
+
+## Current Capabilities
+
+At the moment, the repository already supports a real working loop:
+
+- receiving live JPEG camera input
+- extracting structured visual events from a single camera
+- deciding whether a target is present, where it is, and how it is moving
+- mapping those events into high-level scenes rather than raw servo output
+- executing motion and lighting responses through a four-DOF ESP32 lamp
+- exposing a stable local bridge for control and integration
+- supporting dry-run, mock-device, and offline rehearsal modes
+- optionally writing selected scene and device outcomes back into cloud memory
 
 ## Core Loop
 
@@ -84,36 +118,66 @@ camera input
 
 ## Quick Start
 
+The shortest local path is:
+
 ```bash
 cd Mira-Light-AI-That-Sees-You
 bash scripts/one_click_install.sh
+```
+
+Then run the release preflight:
+
+```bash
 bash scripts/run_preflight_release.sh offline
+```
+
+Then start the local stack:
+
+```bash
 bash scripts/start_local_stack.sh
 ```
 
-Open the director console at:
+After the stack is up, open the director console at:
 
 ```text
 http://127.0.0.1:8765/
 ```
 
-## Repository Highlights
+If you are working with real hardware, set the lamp base URL before starting:
+
+```bash
+export MIRA_LIGHT_LAMP_BASE_URL=http://172.20.10.3
+```
+
+## Key Files
+
+The most useful entry points in this repository are:
 
 - [docs/cam_receiver_new.py](./docs/cam_receiver_new.py)
+  camera receiver for JPEG input and local preview
 - [scripts/track_target_event_extractor.py](./scripts/track_target_event_extractor.py)
+  converts vision input into structured tracking events
 - [scripts/vision_runtime_bridge.py](./scripts/vision_runtime_bridge.py)
+  maps vision events into runtime behavior and scene decisions
 - [scripts/mira_light_runtime.py](./scripts/mira_light_runtime.py)
+  unified runtime surface for scene execution
 - [scripts/scenes.py](./scripts/scenes.py)
+  scene choreography definitions
 - [tools/mira_light_bridge/bridge_server.py](./tools/mira_light_bridge/bridge_server.py)
+  stable local bridge layer
 - [tools/mira_light_bridge/embodied_memory_client.py](./tools/mira_light_bridge/embodied_memory_client.py)
+  optional embodied-memory writer into cloud `memory-context`
 
-## Why It Matters
+If you want the release-oriented local stack and operational runbooks, start
+with:
 
-Most AI products still live behind glass.
-
-Mira Light argues for something bigger: AI that is ambient, embodied, emotionally legible, and physically present.
+- [docs/release-preflight-runbook.md](./docs/release-preflight-runbook.md)
+- [docs/release-local-stack-runbook.md](./docs/release-local-stack-runbook.md)
+- [docs/release-scene-bundles.md](./docs/release-scene-bundles.md)
 
 ## License
+
+This repository is licensed under:
 
 - `GNU Affero General Public License v3.0`
 - SPDX: `AGPL-3.0-only`

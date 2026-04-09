@@ -4,130 +4,76 @@
 
 [中文](./README.md)
 
-**Tagline**
+**Some forms of care do not need to be spoken.**
 
-An embodied AI companion that notices you before you ask.
+Mira Light is an embodied AI interaction project built around a four-DOF smart
+lamp. It tries to move "seeing you, understanding you, and responding to you"
+out of the chat window and into real space through posture, direction, light,
+and rhythm.
 
-**Highlights**
+This repository is not a single-feature demo and not just a loose collection of
+scripts. It is the release-oriented mainline for demo use, rehearsal, and
+handoff, covering the full path from vision input to scene choreography, from
+the local bridge to the director console, and from mock rehearsal to live
+hardware validation.
 
-- `Embodied interaction`: AI moves from the chat window into real-space interaction
-- `End-to-end system`: A runnable loop across vision, runtime, bridge, and console
-- `Extensible memory path`: Selected scene and device outcomes can be written back into cloud memory
-- `Release-ready ops`: Local prerecorded speech, `say` fallback, clearer signal contracts, and cleaner mock-to-live paths
+## Project Positioning
 
----
-
-## Overview
-
-### What This Sync Adds
-
-The latest sync does not primarily add more visual flair. It adds the parts that
-are most worth keeping as release-grade behavior:
-
-- host lines and key scene lines now prefer bundled prerecorded speech assets
-- unmatched lines can fall back to local `say`
-- the repository now explains more clearly how raw TCP servo frames, `pixelSignals`,
-  and `headCapacitive` fit together
-- mock rehearsal, offline validation, and live-hardware handoff are documented more cleanly
-
-If you want the shortest path to what changed, start with:
-
-- [Release Integration Summary (2026-04-09)](./docs/release-2026-04-09-integration-summary.md)
-- [High-Value Updates from the Last 6 Hours](./docs/Guide/06-2026-04-09%E6%9C%80%E8%BF%916%E5%B0%8F%E6%97%B6%E9%AB%98%E4%BB%B7%E5%80%BC%E6%9B%B4%E6%96%B0.md)
-- [Unified Signal Delivery Format](./docs/Guide/09-Mira%20Light%E7%BB%9F%E4%B8%80%E4%BF%A1%E5%8F%B7%E4%BA%A4%E4%BB%98%E6%A0%BC%E5%BC%8F%E8%AF%B4%E6%98%8E.md)
-
-Mira Light: AI That Sees You is an embodied AI interaction project built around a four-DOF lamp.
-It explores a simple shift in interaction design: instead of waiting for an
-explicit prompt, the system notices presence, interprets movement and context,
-and responds through motion, direction, light, and rhythm.
-
-This repository is not just a concept sketch or a visual mockup. It contains a
-working chain across:
-
-- camera input
-- event extraction
-- scene selection
-- lamp runtime control
-- bridge and safety boundaries
-- optional memory writeback into cloud Mira
-
-The project is best understood as a physical companion prototype rather than a
-smart lamp feature demo.
-
-## One-Line Project Intro
-
-Mira Light turns AI from a passive interface into a physical companion that can
-notice you, interpret interaction context, and respond in real space through
-light and movement.
-
-## What The Demo Feels Like
-
-If you stand in front of the demo, the intended interaction is simple:
-
-1. You approach. It wakes.
-2. You pause. It turns toward you.
-3. You move. It follows.
-4. You engage. It shifts tone or motion.
-5. You leave. It watches you go and settles back down.
-
-The point is not motion in isolation. The point is that the motion appears to
-be grounded in perception and timing rather than in random playback.
-
-## Why This Project Matters
-
-The project is trying to move AI interaction from:
+Mira Light is built for expo demos, director-led presentations, and technical
+handoff. Its core goal is not simply to prove that "a lamp can move," but to
+prove that:
 
 ```text
-input -> answer
+AI can first notice your presence
+-> interpret your position and interaction context
+-> then respond through motion and light
 ```
 
-toward:
-
-```text
-notice -> interpret -> respond
-```
-
-That matters because:
-
-- the system no longer has to wait for a command before it becomes relevant
-- response is no longer limited to text or voice
-- interaction becomes part of the surrounding physical space
-
-Mira Light is not simply arguing that “AI can control hardware.”  
-It is exploring what happens when AI starts to behave less like a utility panel
-and more like a low-disturbance companion with presence.
-
-## Current Capabilities
-
-At the moment, the repository already supports a real working loop:
-
-- receiving live JPEG camera input
-- extracting structured visual events from a single camera
-- deciding whether a target is present, where it is, and how it is moving
-- mapping those events into high-level scenes rather than raw servo output
-- executing motion and lighting responses through a four-DOF ESP32 lamp
-- exposing a stable local bridge for control and integration
-- supporting dry-run, mock-device, and offline rehearsal modes
-- optionally writing selected scene and device outcomes back into cloud memory
-- providing a graphical director-console mock panel for `headCapacitive` and `40`-pixel `pixelSignals`
-- supporting local mock-lamp rehearsal, scene trace export, and vision replay bench tooling
-- supporting a live-follow demo path that can attach to the receiver / captures pipeline
-- supporting local audio cues, bundled prerecorded speech, local `say` fallback, and Bluetooth-speaker demo routing
-- enforcing runtime / bridge safety decisions with clamp-or-reject behavior for control payloads
-- documenting the unified signal contract across raw TCP servo frames, `pixelSignals`, and `headCapacitive`
-
-## Core Loop
+The repository is currently organized around this loop:
 
 ```text
 camera input
 -> vision event extraction
--> runtime scene selection
+-> scene selection
 -> bridge / safety layer
 -> ESP32 lamp motion + light response
 -> optional embodied memory writeback
 ```
 
-## Key Scenes
+## Demo Experience
+
+At the booth, Mira Light is meant to make one thing clear within a few seconds:
+this is not a lamp randomly replaying motions, but a physical system that sees
+you first and then responds.
+
+Typical interactions include:
+
+- you approach, it wakes up
+- you pause, it observes you
+- you move, it follows you
+- you engage, it shows affection, excitement, or reminder behavior
+- you leave, it watches you go and settles back into rest
+
+Representative scene references:
+
+- [docs/mira-light-booth-scene-table.md](./docs/mira-light-booth-scene-table.md)
+- [docs/mira-light-scene-implementation-index.md](./docs/mira-light-scene-implementation-index.md)
+- [docs/release-scene-bundles.md](./docs/release-scene-bundles.md)
+
+## Current Capability Scope
+
+The repository currently provides these release-grade capabilities:
+
+- single-camera input and structured vision event extraction
+- scene-based motion choreography instead of direct raw servo output
+- four-joint ESP32 lamp motion and light execution
+- a local bridge, director console, receiver, and a unified startup contract
+- mock device, dry-run, offline rehearsal, and mock-to-live handoff paths
+- prerecorded host lines, local audio cues, and `say` fallback behavior
+- a shared control safety layer with clamp / reject handling for pose, absolute control, and relative `nudge`
+- optional embodied memory writeback
+
+The main scenes currently covered are:
 
 - `wake_up`
 - `curious_observe`
@@ -140,116 +86,201 @@ camera input
 - `farewell`
 - `sleep`
 
+At the moment, `track_target` still functions mainly as a rehearsal-oriented
+surrogate choreography and has not yet fully converged into the final live
+vision loop. See:
+
+- [docs/mira-light-pdf2-engineering-handoff.md](./docs/mira-light-pdf2-engineering-handoff.md)
+- [docs/mira-light-pdf2-implementation-audit.md](./docs/mira-light-pdf2-implementation-audit.md)
+
+## Motion And Implementation Source Of Truth
+
+If you need to decide what the current motion truth should be, read in this
+order:
+
+1. [docs/source-pdfs/Mira Light 展位交互方案2.pdf](./docs/source-pdfs/Mira%20Light%20展位交互方案2.pdf)
+2. [docs/source-pdfs/ESP32 智能台灯.pdf](./docs/source-pdfs/ESP32%20智能台灯.pdf)
+3. [scripts/scenes.py](./scripts/scenes.py)
+4. [scripts/mira_light_runtime.py](./scripts/mira_light_runtime.py)
+5. [docs/mira-light-scene-implementation-index.md](./docs/mira-light-scene-implementation-index.md)
+6. [docs/mira-light-pdf2-implementation-audit.md](./docs/mira-light-pdf2-implementation-audit.md)
+
+At the program layer, the hardware model is currently unified around four servo
+joints:
+
+- `servo1`: base yaw
+- `servo2`: lower arm lift
+- `servo3`: forward / middle joint extension and lift
+- `servo4`: head pitch / micro-expression
+
+## Repository Layout
+
+```text
+.
+├── README.md
+├── README.en.md
+├── assets/                      audio cues and demo assets
+├── config/                      profiles, scene bundles, and event schemas
+├── deploy/                      repo manifest and environment templates
+├── docs/                        release docs, runbooks, handoff notes, and source PDFs
+├── scripts/                     runtime, scenes, receiver, console, diagnostics, and startup scripts
+├── tests/                       lightweight verification scripts
+├── tools/mira_light_bridge/     local bridge and OpenClaw plugin
+└── web/                         director console and scene showcase pages
+```
+
+The most important entry points are:
+
+- [scripts/scenes.py](./scripts/scenes.py)
+- [scripts/mira_light_runtime.py](./scripts/mira_light_runtime.py)
+- [scripts/vision_runtime_bridge.py](./scripts/vision_runtime_bridge.py)
+- [scripts/track_target_event_extractor.py](./scripts/track_target_event_extractor.py)
+- [tools/mira_light_bridge/README.md](./tools/mira_light_bridge/README.md)
+- [docs/release-startup-contract.md](./docs/release-startup-contract.md)
+
 ## Quick Start
 
-The shortest local path is:
+### Requirements
+
+- Python `3.10+`
+- local `curl`
+
+### One-Command Install
 
 ```bash
 cd Mira-Light-AI-That-Sees-You
 bash scripts/setup_local_env.sh
 ```
 
-Then run the release preflight:
+Or:
 
 ```bash
-bash scripts/run_preflight_release.sh offline
+npm run bootstrap
 ```
 
-Then start the local stack:
+### Fastest Local Demo Path
 
-```bash
-bash scripts/start_local_stack.sh
-```
-
-If you want a mock-first rehearsal path, you can now use:
-
-```bash
-# shortest mock director-console path
-bash scripts/start_mock_console.sh
-
-# run a quick offline rehearsal
-bash scripts/run_mira_light_offline_rehearsal.sh --mode quick
-
-# run the live-follow demo in mock / dry-run mode
-bash scripts/run_mira_light_live_follow_demo.sh --mock-device --dry-run
-```
-
-After the stack is up, open the director console at:
-
-```text
-http://127.0.0.1:8765/
-```
-
-If you are working with real hardware, set the lamp base URL before starting:
-
-```bash
-export MIRA_LIGHT_LAMP_BASE_URL=http://172.20.10.3
-```
-
-If you only want the most common local demo path, use:
+If you want the safest mock-first path:
 
 ```bash
 bash scripts/setup_local_env.sh
 bash scripts/start_mock_console.sh
 ```
 
-These are thin wrappers. They do not replace the existing core scripts; they
-just make it easier to stay on the repo-local `.venv` and bring up the
-`mock lamp + bridge + director console` stack in one step.
+If you want to start the full local stack using the release contract:
 
-Useful follow-up runbooks:
+```bash
+bash scripts/run_preflight_release.sh offline
+bash scripts/start_local_stack.sh
+```
 
-- [docs/release-2026-04-09-integration-summary.md](./docs/release-2026-04-09-integration-summary.md)
-- [docs/mira-light-mock-rehearsal-guide.md](./docs/mira-light-mock-rehearsal-guide.md)
-- [docs/mira-light-live-follow-demo-runbook.md](./docs/mira-light-live-follow-demo-runbook.md)
-- [docs/mira-light-offline-validation-stack.md](./docs/mira-light-offline-validation-stack.md)
-- [docs/openclaw-local-audio-tts.md](./docs/openclaw-local-audio-tts.md)
-- [docs/Guide/README.md](./docs/Guide/README.md)
+Common commands:
 
-## Key Files
+```bash
+npm run bootstrap
+npm run preflight
+npm start
+npm run doctor
+npm run smoke:http
+npm run rehearsal:offline
+npm run demo:live-follow
+```
 
-The most useful entry points in this repository are:
+Default director console entry:
 
-- [docs/cam_receiver_new.py](./docs/cam_receiver_new.py)
-  camera receiver for JPEG input and local preview
-- [scripts/track_target_event_extractor.py](./scripts/track_target_event_extractor.py)
-  converts vision input into structured tracking events
-- [scripts/vision_runtime_bridge.py](./scripts/vision_runtime_bridge.py)
-  maps vision events into runtime behavior and scene decisions
-- [scripts/mira_light_runtime.py](./scripts/mira_light_runtime.py)
-  unified runtime surface for scene execution
-- [scripts/scenes.py](./scripts/scenes.py)
-  scene choreography definitions
-- [tools/mira_light_bridge/bridge_server.py](./tools/mira_light_bridge/bridge_server.py)
-  stable local bridge layer
-- [tools/mira_light_bridge/embodied_memory_client.py](./tools/mira_light_bridge/embodied_memory_client.py)
-  optional embodied-memory writer into cloud `memory-context`
+```text
+http://127.0.0.1:8765/
+```
 
-If you want the release-oriented local stack and operational runbooks, start
-with:
+If you are using live hardware, set the lamp base URL first:
 
-- [docs/release-preflight-runbook.md](./docs/release-preflight-runbook.md)
-- [docs/release-local-stack-runbook.md](./docs/release-local-stack-runbook.md)
+```bash
+export MIRA_LIGHT_LAMP_BASE_URL=http://172.20.10.3
+```
+
+If you want to avoid live hardware for now:
+
+```bash
+export MIRA_LIGHT_DRY_RUN=1
+```
+
+## Current Startup Contract
+
+The current release uses this unified topology:
+
+```text
+browser
+-> director console
+-> local bridge
+-> lamp runtime target
+```
+
+This means:
+
+- the console does not talk to the lamp directly
+- the bridge owns the public API, runtime state, and safety decisions
+- `MIRA_LIGHT_LAMP_BASE_URL` and `MIRA_LIGHT_DRY_RUN` belong to the bridge runtime
+- the receiver remains a separate path and is not part of the console startup contract
+
+Details:
+
+- [docs/release-startup-contract.md](./docs/release-startup-contract.md)
+- [docs/release-control-safety-and-openclaw-rollback.md](./docs/release-control-safety-and-openclaw-rollback.md)
+
+## Scene Bundles And Delivery Modes
+
+To separate the smallest showable path from the full booth path, the current
+release provides scene bundles:
+
+- `minimal`
+- `booth_core`
+- `booth_extended`
+- `sensor_demos`
+
+Example:
+
+```bash
+MIRA_LIGHT_SCENE_BUNDLE=booth_core bash scripts/start_local_stack.sh
+```
+
+Reference:
+
 - [docs/release-scene-bundles.md](./docs/release-scene-bundles.md)
-- [docs/release-demo-readiness-checklist.md](./docs/release-demo-readiness-checklist.md)
-- [docs/release-live-execution-checklist.md](./docs/release-live-execution-checklist.md)
-- [docs/release-sync-from-mira-light-released-version-2026-04-09.md](./docs/release-sync-from-mira-light-released-version-2026-04-09.md)
-- [docs/Guide/README.md](./docs/Guide/README.md)
 
-Additional entry points added in this incremental sync:
+## Recommended Reading Order
 
-- [scripts/run_mock_lamp.sh](./scripts/run_mock_lamp.sh)
-- [scripts/setup_local_env.sh](./scripts/setup_local_env.sh)
-- [scripts/start_mock_console.sh](./scripts/start_mock_console.sh)
-- [scripts/run_mira_light_offline_rehearsal.sh](./scripts/run_mira_light_offline_rehearsal.sh)
-- [scripts/run_mira_light_live_follow_demo.sh](./scripts/run_mira_light_live_follow_demo.sh)
-- [scripts/scene_trace_recorder.py](./scripts/scene_trace_recorder.py)
-- [scripts/vision_replay_bench.py](./scripts/vision_replay_bench.py)
-- [web/index.html](./web/index.html)
+If you are taking over this repository for the first time, read in this order:
 
-## License
+1. [docs/getting-started.md](./docs/getting-started.md)
+2. [docs/release-preflight-runbook.md](./docs/release-preflight-runbook.md)
+3. [docs/release-startup-contract.md](./docs/release-startup-contract.md)
+4. [docs/release-scene-bundles.md](./docs/release-scene-bundles.md)
+5. [docs/mira-light-pdf2-engineering-handoff.md](./docs/mira-light-pdf2-engineering-handoff.md)
+6. [docs/mira-light-scene-implementation-index.md](./docs/mira-light-scene-implementation-index.md)
+7. [docs/Guide/README.md](./docs/Guide/README.md)
 
-This repository is licensed under:
+Full documentation entry:
 
-- `GNU Affero General Public License v3.0`
-- SPDX: `AGPL-3.0-only`
+- [docs/README.md](./docs/README.md)
+
+## Current Boundaries
+
+This repository should currently be understood as:
+
+- a runnable Mira Light release repository
+- a local system organized around booth demo, rehearsal, and delivery
+- a release surface centered on the bridge, safety layer, scene bundles, and mock-to-live switching
+
+It should not be misread as:
+
+- a final hardware product with every sensing loop fully completed
+- a simple demo that can be understood from one script alone
+- just a collection of lamp motion assets
+
+## Related Entry Points
+
+- [README.md](./README.md)
+- [CONTRIBUTING.md](./CONTRIBUTING.md)
+- [CHANGELOG.md](./CHANGELOG.md)
+- [deploy/README.md](./deploy/README.md)
+- [tools/mira_light_bridge/README.md](./tools/mira_light_bridge/README.md)

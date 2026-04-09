@@ -91,6 +91,11 @@ At the moment, the repository already supports a real working loop:
 - exposing a stable local bridge for control and integration
 - supporting dry-run, mock-device, and offline rehearsal modes
 - optionally writing selected scene and device outcomes back into cloud memory
+- providing a graphical director-console mock panel for `headCapacitive` and `40`-pixel `pixelSignals`
+- supporting local mock-lamp rehearsal, scene trace export, and vision replay bench tooling
+- supporting a live-follow demo path that can attach to the receiver / captures pipeline
+- supporting local audio cues, TTS playback, and Bluetooth-speaker demo routing
+- enforcing runtime / bridge safety decisions with clamp-or-reject behavior for control payloads
 
 ## Core Loop
 
@@ -137,6 +142,19 @@ Then start the local stack:
 bash scripts/start_local_stack.sh
 ```
 
+If you want a mock-first rehearsal path, you can now use:
+
+```bash
+# start the mock lamp
+bash scripts/run_mock_lamp.sh
+
+# run a quick offline rehearsal
+bash scripts/run_mira_light_offline_rehearsal.sh --mode quick
+
+# run the live-follow demo in mock / dry-run mode
+bash scripts/run_mira_light_live_follow_demo.sh --mock-device --dry-run
+```
+
 After the stack is up, open the director console at:
 
 ```text
@@ -148,6 +166,13 @@ If you are working with real hardware, set the lamp base URL before starting:
 ```bash
 export MIRA_LIGHT_LAMP_BASE_URL=http://172.20.10.3
 ```
+
+Useful follow-up runbooks:
+
+- [docs/mira-light-mock-rehearsal-guide.md](./docs/mira-light-mock-rehearsal-guide.md)
+- [docs/mira-light-live-follow-demo-runbook.md](./docs/mira-light-live-follow-demo-runbook.md)
+- [docs/mira-light-offline-validation-stack.md](./docs/mira-light-offline-validation-stack.md)
+- [docs/openclaw-local-audio-tts.md](./docs/openclaw-local-audio-tts.md)
 
 ## Key Files
 
@@ -174,6 +199,17 @@ with:
 - [docs/release-preflight-runbook.md](./docs/release-preflight-runbook.md)
 - [docs/release-local-stack-runbook.md](./docs/release-local-stack-runbook.md)
 - [docs/release-scene-bundles.md](./docs/release-scene-bundles.md)
+- [docs/release-demo-readiness-checklist.md](./docs/release-demo-readiness-checklist.md)
+- [docs/release-live-execution-checklist.md](./docs/release-live-execution-checklist.md)
+
+Additional entry points added in this incremental sync:
+
+- [scripts/run_mock_lamp.sh](./scripts/run_mock_lamp.sh)
+- [scripts/run_mira_light_offline_rehearsal.sh](./scripts/run_mira_light_offline_rehearsal.sh)
+- [scripts/run_mira_light_live_follow_demo.sh](./scripts/run_mira_light_live_follow_demo.sh)
+- [scripts/scene_trace_recorder.py](./scripts/scene_trace_recorder.py)
+- [scripts/vision_replay_bench.py](./scripts/vision_replay_bench.py)
+- [web/index.html](./web/index.html)
 
 ## License
 

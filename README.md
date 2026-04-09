@@ -169,6 +169,11 @@ Mira Light 在展位上的演示，不是简单地播放一套预设动作，而
 - 提供本地 bridge、导演台 console、receiver、preflight、diagnostics 和测试
 - 支持真实灯具、dry-run、mock 演练和本地完整栈启动
 - 支持把部分场景/设备结果写入云端 `memory-context`
+- 导演台已包含图形化 mock 面板，可直接查看 `headCapacitive` 与 `40` 灯 `pixelSignals`
+- 支持本地 `mock lamp`、offline rehearsal、scene trace 和视觉 replay bench
+- 支持真人跟随 `live-follow demo`，可直接挂接 receiver / captures 链路
+- 支持本地音频 cue、TTS 播放链路，以及蓝牙音箱演示路径
+- bridge / runtime 已具备控制安全层，对 pose 和 servo 控制做 `clamp / reject`
 
 ## 代表性场景
 
@@ -274,6 +279,26 @@ export MIRA_LIGHT_DRY_RUN=1
 bash scripts/start_local_stack.sh
 ```
 
+### 7. 如果要直接跑 mock / 排练 / 真人跟随 demo
+
+```bash
+# 启动 mock 灯
+bash scripts/run_mock_lamp.sh
+
+# 跑 quick offline rehearsal
+bash scripts/run_mira_light_offline_rehearsal.sh --mode quick
+
+# 跑真人跟随 demo（mock / dry-run）
+bash scripts/run_mira_light_live_follow_demo.sh --mock-device --dry-run
+```
+
+推荐继续阅读：
+
+- [docs/mira-light-mock-rehearsal-guide.md](./docs/mira-light-mock-rehearsal-guide.md)
+- [docs/mira-light-live-follow-demo-runbook.md](./docs/mira-light-live-follow-demo-runbook.md)
+- [docs/mira-light-offline-validation-stack.md](./docs/mira-light-offline-validation-stack.md)
+- [docs/openclaw-local-audio-tts.md](./docs/openclaw-local-audio-tts.md)
+
 ## 与云端 Mira 的关系
 
 这个仓库不只是设备控制栈，它也是第一版 `embodied memory producer`。
@@ -301,6 +326,8 @@ mira-light-bridge
 
 - [docs/mira-context-proactivity-architecture.md](./docs/mira-context-proactivity-architecture.md)
 - [docs/mira-light-embodied-memory-integration-2026-04-09.md](./docs/mira-light-embodied-memory-integration-2026-04-09.md)
+- [docs/release-demo-readiness-checklist.md](./docs/release-demo-readiness-checklist.md)
+- [docs/release-live-execution-checklist.md](./docs/release-live-execution-checklist.md)
 
 ## 仓库结构
 
@@ -320,7 +347,7 @@ mira-light-bridge
   视觉事件与测试 fixtures
 
 - `scripts/`
-  runtime、receiver、preflight、诊断、安装和演示脚本
+  runtime、receiver、preflight、mock、offline rehearsal、live-follow、诊断、安装和演示脚本
 
 - `tests/`
   Python 测试
@@ -330,6 +357,29 @@ mira-light-bridge
 
 - `web/`
   导演台与场景演示前端
+
+## 新增入口
+
+- [scripts/run_mock_lamp.sh](./scripts/run_mock_lamp.sh)
+  启动本地 mock 灯，覆盖 `headCapacitive` 和 `40` 灯 `pixelSignals`
+
+- [scripts/run_mira_light_offline_rehearsal.sh](./scripts/run_mira_light_offline_rehearsal.sh)
+  启动 quick / full 两档离线排练
+
+- [scripts/run_mira_light_live_follow_demo.sh](./scripts/run_mira_light_live_follow_demo.sh)
+  启动真人跟随 demo，可接 mock 或真灯
+
+- [scripts/scene_trace_recorder.py](./scripts/scene_trace_recorder.py)
+  记录 scene trace，导出 JSON 与 HTML 时间线
+
+- [scripts/vision_replay_bench.py](./scripts/vision_replay_bench.py)
+  回放视觉样本，验证 scene 决策与 bridge state
+
+- [docs/mira-light-pdf5-10-scene-code-concretization.md](./docs/mira-light-pdf5-10-scene-code-concretization.md)
+  对 `方案5` 十场景落地的代码化说明
+
+- [web/index.html](./web/index.html)
+  发布版导演台入口，包含图形化 mock、电容状态和 40 灯总览
 
 ## 提交材料映射
 

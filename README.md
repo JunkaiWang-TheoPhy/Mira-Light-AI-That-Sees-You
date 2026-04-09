@@ -283,3 +283,13 @@ MIRA_LIGHT_SCENE_BUNDLE=booth_core bash scripts/start_local_stack.sh
 - [CHANGELOG.md](./CHANGELOG.md)
 - [deploy/README.md](./deploy/README.md)
 - [tools/mira_light_bridge/README.md](./tools/mira_light_bridge/README.md)
+
+## 总结
+
+Mira Light 的意义，不只在于让一盏灯拥有动作，而在于让 AI 的关心第一次在
+现实空间中拥有了方向、节奏和身体语言。这个仓库记录的，正是这种可能性从概念、
+脚本、桥接到可演示系统的落地过程。
+
+如果下一代 AI 体验不再只是“你问，它答”，而是能够先注意到你、理解你，再以
+克制而恰当的方式回应你，那么像 Mira Light 这样的系统，就不仅是一个 demo，
+而是未来具身化交互的一种早期原型。

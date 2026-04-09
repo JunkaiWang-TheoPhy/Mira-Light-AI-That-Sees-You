@@ -292,3 +292,15 @@ It should not be misread as:
 - [CHANGELOG.md](./CHANGELOG.md)
 - [deploy/README.md](./deploy/README.md)
 - [tools/mira_light_bridge/README.md](./tools/mira_light_bridge/README.md)
+
+## Closing Note
+
+Mira Light matters not only because it gives a lamp motion, but because it lets
+AI care take on direction, timing, and body language in real space. What this
+repository captures is the path from concept to scripts, from bridge to runtime,
+and from choreography to a system that can actually be rehearsed and shown.
+
+If the next generation of AI is no longer limited to “you ask, it answers,” but
+can first notice you, interpret the moment, and then respond with restraint and
+presence, then systems like Mira Light are more than demos. They are early
+prototypes of embodied interaction.

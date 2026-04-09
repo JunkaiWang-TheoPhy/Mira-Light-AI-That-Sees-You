@@ -103,13 +103,117 @@ function buildRunSceneTool(api) {
       properties: {
         scene: { type: "string" },
         async: { type: "boolean" },
+        cueMode: { type: "string", enum: ["scene", "director", "trigger", "operator"] },
+        context: { type: "object" },
+        allowUnavailable: { type: "boolean" },
       },
     },
     async execute(_id, params) {
-      const data = await callBridge(api, "POST", "/v1/mira-light/run-scene", {
+      const payload = {
         scene: params.scene,
         async: params.async !== false,
+        ...(params.cueMode ? { cueMode: params.cueMode } : {}),
+        ...(params.context ? { context: params.context } : {}),
+        ...(typeof params.allowUnavailable === "boolean"
+          ? { allowUnavailable: params.allowUnavailable }
+          : {}),
+      };
+      const data = await callBridge(api, "POST", "/v1/mira-light/run-scene", payload);
+      return asTextContent(data);
+    },
+  };
+}
+
+function buildTriggerTool(api) {
+  return {
+    name: "mira_light_trigger_event",
+    description: "Trigger a Mira Light semantic event through the local bridge.",
+    parameters: {
+      type: "object",
+      additionalProperties: false,
+      required: ["event"],
+      properties: {
+        event: { type: "string", minLength: 1 },
+        payload: { type: "object" },
+      },
+    },
+    async execute(_id, params) {
+      const data = await callBridge(api, "POST", "/v1/mira-light/trigger", {
+        event: params.event,
+        ...(params.payload ? { payload: params.payload } : {}),
       });
+      return asTextContent(data);
+    },
+  };
+}
+
+function buildApplyPoseTool(api) {
+  return {
+    name: "mira_light_apply_pose",
+    description: "Apply a named Mira Light pose through the local bridge.",
+    parameters: {
+      type: "object",
+      additionalProperties: false,
+      required: ["pose"],
+      properties: {
+        pose: { type: "string", minLength: 1 },
+      },
+    },
+    async execute(_id, params) {
+      const data = await callBridge(api, "POST", "/v1/mira-light/apply-pose", {
+        pose: params.pose,
+      });
+      return asTextContent(data);
+    },
+  };
+}
+
+function buildSpeakTool(api) {
+  return {
+    name: "mira_light_speak",
+    description:
+      "Speak a short public line through Mira Light's configured speaker path. Prefer scenes for expressive multi-step behavior.",
+    parameters: {
+      type: "object",
+      additionalProperties: false,
+      required: ["text"],
+      properties: {
+        text: { type: "string", minLength: 1, maxLength: 80 },
+        voice: { type: "string", enum: ["tts", "openclaw", "say"] },
+        wait: { type: "boolean" },
+      },
+    },
+    async execute(_id, params) {
+      const payload = {
+        text: params.text,
+        ...(params.voice ? { voice: params.voice } : {}),
+        ...(typeof params.wait === "boolean" ? { wait: params.wait } : {}),
+      };
+      const data = await callBridge(api, "POST", "/v1/mira-light/speak", payload);
+      return asTextContent(data);
+    },
+  };
+}
+
+function buildStopToNeutralTool(api) {
+  return {
+    name: "mira_light_stop_to_neutral",
+    description: "Stop the current scene and recover Mira Light to the neutral pose.",
+    parameters: { type: "object", properties: {}, required: [] },
+    async execute() {
+      const data = await callBridge(api, "POST", "/v1/mira-light/operator/stop-to-neutral");
+      return asTextContent(data);
+    },
+  };
+}
+
+function buildStopToSleepTool(api) {
+  return {
+    name: "mira_light_stop_to_sleep",
+    description: "Stop the current scene and recover Mira Light to the sleep pose.",
+    parameters: { type: "object", properties: {}, required: [] },
+    async execute() {
+      const data = await callBridge(api, "POST", "/v1/mira-light/operator/stop-to-sleep");
       return asTextContent(data);
     },
   };
@@ -140,6 +244,18 @@ function buildResetTool(api) {
 }
 
 function buildLedTool(api) {
+  const ledPixelSchema = {
+    type: "object",
+    additionalProperties: false,
+    properties: {
+      r: { type: "integer", minimum: 0, maximum: 255 },
+      g: { type: "integer", minimum: 0, maximum: 255 },
+      b: { type: "integer", minimum: 0, maximum: 255 },
+      brightness: { type: "integer", minimum: 0, maximum: 255 },
+    },
+    required: ["r", "g", "b"],
+  };
+
   return {
     name: "mira_light_set_led",
     description: "Set the Mira Light LED state through the local bridge.",
@@ -147,11 +263,20 @@ function buildLedTool(api) {
       type: "object",
       additionalProperties: false,
       properties: {
-        mode: { type: "string" },
-        brightness: { type: "number" },
-        color: { type: "object" },
+        mode: {
+          type: "string",
+          enum: ["off", "solid", "breathing", "rainbow", "rainbow_cycle", "vector"],
+        },
+        brightness: { type: "integer", minimum: 0, maximum: 255 },
+        color: ledPixelSchema,
+        pixels: {
+          type: "array",
+          minItems: 40,
+          maxItems: 40,
+          items: ledPixelSchema,
+        },
       },
-      required: [],
+      required: ["mode"],
     },
     async execute(_id, params) {
       const data = await callBridge(api, "POST", "/v1/mira-light/led", params);
@@ -192,6 +317,11 @@ const plugin = {
     api.registerTool(buildRuntimeTool(api), { optional: false });
     api.registerTool(buildStatusTool(api), { optional: false });
     api.registerTool(buildRunSceneTool(api), { optional: false });
+    api.registerTool(buildTriggerTool(api), { optional: false });
+    api.registerTool(buildApplyPoseTool(api), { optional: false });
+    api.registerTool(buildSpeakTool(api), { optional: false });
+    api.registerTool(buildStopToNeutralTool(api), { optional: false });
+    api.registerTool(buildStopToSleepTool(api), { optional: false });
     api.registerTool(buildStopTool(api), { optional: false });
     api.registerTool(buildResetTool(api), { optional: false });
     api.registerTool(buildLedTool(api), { optional: false });
@@ -200,4 +330,3 @@ const plugin = {
 };
 
 export default plugin;
-

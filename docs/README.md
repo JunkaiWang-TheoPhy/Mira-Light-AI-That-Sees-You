@@ -13,10 +13,20 @@
 5. [release-control-safety-and-openclaw-rollback.md](./release-control-safety-and-openclaw-rollback.md)
 6. [release-local-stack-runbook.md](./release-local-stack-runbook.md)
 7. [release-network-diagnostics.md](./release-network-diagnostics.md)
-8. [release-environment-reference.md](./release-environment-reference.md)
-9. [release-layout.md](./release-layout.md)
-10. [mira-light-pdf2-engineering-handoff.md](./mira-light-pdf2-engineering-handoff.md)
-11. [mira-light-scene-implementation-index.md](./mira-light-scene-implementation-index.md)
+8. [release-demo-readiness-checklist.md](./release-demo-readiness-checklist.md)
+9. [release-failure-playbook.md](./release-failure-playbook.md)
+10. [release-live-execution-checklist.md](./release-live-execution-checklist.md)
+11. [release-environment-reference.md](./release-environment-reference.md)
+12. [release-final-status-matrix.md](./release-final-status-matrix.md)
+13. [release-final-hardware-blockers-checklist.md](./release-final-hardware-blockers-checklist.md)
+14. [release-layout.md](./release-layout.md)
+15. [mira-light-pdf2-engineering-handoff.md](./mira-light-pdf2-engineering-handoff.md)
+16. [mira-light-scene-implementation-index.md](./mira-light-scene-implementation-index.md)
+17. [mira-light-mock-rehearsal-guide.md](./mira-light-mock-rehearsal-guide.md)
+18. [mira-light-live-follow-demo-runbook.md](./mira-light-live-follow-demo-runbook.md)
+19. [mira-light-offline-validation-stack.md](./mira-light-offline-validation-stack.md)
+20. [mira-light-pdf5-10-scene-code-concretization.md](./mira-light-pdf5-10-scene-code-concretization.md)
+21. [mira-light-10-scene-rehearsal-checklist.md](./mira-light-10-scene-rehearsal-checklist.md)
 
 ## 当前文档分组
 
@@ -29,8 +39,16 @@
 - [release-control-safety-and-openclaw-rollback.md](./release-control-safety-and-openclaw-rollback.md)
 - [release-local-stack-runbook.md](./release-local-stack-runbook.md)
 - [release-network-diagnostics.md](./release-network-diagnostics.md)
+- [release-demo-readiness-checklist.md](./release-demo-readiness-checklist.md)
+- [release-failure-playbook.md](./release-failure-playbook.md)
+- [release-live-execution-checklist.md](./release-live-execution-checklist.md)
+- [release-final-status-matrix.md](./release-final-status-matrix.md)
+- [release-final-hardware-blockers-checklist.md](./release-final-hardware-blockers-checklist.md)
 - [release-environment-reference.md](./release-environment-reference.md)
 - [release-layout.md](./release-layout.md)
+- [mira-light-mock-rehearsal-guide.md](./mira-light-mock-rehearsal-guide.md)
+- [mira-light-live-follow-demo-runbook.md](./mira-light-live-follow-demo-runbook.md)
+- [mira-light-offline-validation-stack.md](./mira-light-offline-validation-stack.md)
 - [mira-light-pdf2-engineering-handoff.md](./mira-light-pdf2-engineering-handoff.md)
 - [mira-light-pdf2-implementation-audit.md](./mira-light-pdf2-implementation-audit.md)
 
@@ -39,6 +57,8 @@
 - [mira-light-booth-scene-table.md](./mira-light-booth-scene-table.md)
 - [mira-light-scene-implementation-index.md](./mira-light-scene-implementation-index.md)
 - [mira-light-scene-to-code-spec.md](./mira-light-scene-to-code-spec.md)
+- [mira-light-pdf5-10-scene-code-concretization.md](./mira-light-pdf5-10-scene-code-concretization.md)
+- [mira-light-10-scene-rehearsal-checklist.md](./mira-light-10-scene-rehearsal-checklist.md)
 - [release-scene-bundles.md](./release-scene-bundles.md)
 
 ### OpenClaw / Bridge / Safety
@@ -52,6 +72,7 @@
 
 - [simple-lamp-receiver-overview.md](./simple-lamp-receiver-overview.md)
 - [mira-light-vision-stream-and-gemini-summary.md](./mira-light-vision-stream-and-gemini-summary.md)
+- [mira-light-live-follow-demo-runbook.md](./mira-light-live-follow-demo-runbook.md)
 - [mira-context-proactivity-architecture.md](./mira-context-proactivity-architecture.md)
 
 ### 原始 PDF
@@ -59,8 +80,9 @@
 - [source-pdfs/ESP32 智能台灯.pdf](./source-pdfs/ESP32%20智能台灯.pdf)
 - [source-pdfs/Mira Light 展位交互方案2.pdf](./source-pdfs/Mira%20Light%20展位交互方案2.pdf)
 - [source-pdfs/Mira Light 展位交互方案3.pdf](./source-pdfs/Mira%20Light%20展位交互方案3.pdf)
+- [source-pdfs/Mira Light 展位交互方案5.pdf](./source-pdfs/Mira%20Light%20展位交互方案5.pdf)
 
 ## 说明
 
-当前 release docs 里有一部分文件是从原型仓复制过来的，内容仍然有效，但个别超链接可能还保留旧仓绝对路径。  
-在真正拆成独立 repo 的最后一轮整理里，应该把这些链接全部改成相对路径。
+当前 release docs 已优先改成 release 目录内可解析的相对链接。  
+如果后续继续拆成独立 repo，仍建议再做一轮链接与命令示例的最终校对。

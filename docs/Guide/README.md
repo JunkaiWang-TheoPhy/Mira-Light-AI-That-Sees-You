@@ -12,11 +12,11 @@
 
 ## 当前指南
 
-1. [实时语音启动与模式切换](./01-实时语音启动与模式切换.md)
-2. [现场快速操作清单](./02-现场快速操作清单.md)
-3. [实时语音常见问题排查](./03-实时语音常见问题排查.md)
-4. [9527 总线舵机 TCP 帧协议与仓库对齐说明](./04-9527总线舵机TCP帧协议与仓库对齐说明.md)
-5. [CV 上展补强与验收路线](./05-CV上展补强与验收路线.md)
+1. [Realtime Voice Startup and Mode Switching](./01-实时语音启动与模式切换.md)
+2. [On-Site Quick Operation Checklist](./02-现场快速操作清单.md)
+3. [Realtime Voice Troubleshooting Guide](./03-实时语音常见问题排查.md)
+4. [9527 Bus-Servo TCP Frame Alignment Guide](./04-9527总线舵机TCP帧协议与仓库对齐说明.md)
+5. [CV Expo Hardening and Acceptance Plan](./05-CV上展补强与验收路线.md)
 6. [High-Value Updates from the Last 6 Hours](./06-2026-04-09最近6小时高价值更新.md)
 7. [Unified Signal Delivery Format](./09-Mira%20Light统一信号交付格式说明.md)
 

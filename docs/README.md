@@ -27,6 +27,7 @@
 19. [mira-light-offline-validation-stack.md](./mira-light-offline-validation-stack.md)
 20. [mira-light-pdf5-10-scene-code-concretization.md](./mira-light-pdf5-10-scene-code-concretization.md)
 21. [mira-light-10-scene-rehearsal-checklist.md](./mira-light-10-scene-rehearsal-checklist.md)
+22. [release-sync-from-mira-light-released-version-2026-04-09.md](./release-sync-from-mira-light-released-version-2026-04-09.md)
 
 ## 当前文档分组
 
@@ -46,6 +47,7 @@
 - [release-final-hardware-blockers-checklist.md](./release-final-hardware-blockers-checklist.md)
 - [release-environment-reference.md](./release-environment-reference.md)
 - [release-layout.md](./release-layout.md)
+- [release-sync-from-mira-light-released-version-2026-04-09.md](./release-sync-from-mira-light-released-version-2026-04-09.md)
 - [mira-light-mock-rehearsal-guide.md](./mira-light-mock-rehearsal-guide.md)
 - [mira-light-live-follow-demo-runbook.md](./mira-light-live-follow-demo-runbook.md)
 - [mira-light-offline-validation-stack.md](./mira-light-offline-validation-stack.md)

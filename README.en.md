@@ -201,6 +201,7 @@ with:
 - [docs/release-scene-bundles.md](./docs/release-scene-bundles.md)
 - [docs/release-demo-readiness-checklist.md](./docs/release-demo-readiness-checklist.md)
 - [docs/release-live-execution-checklist.md](./docs/release-live-execution-checklist.md)
+- [docs/release-sync-from-mira-light-released-version-2026-04-09.md](./docs/release-sync-from-mira-light-released-version-2026-04-09.md)
 
 Additional entry points added in this incremental sync:
 

@@ -328,6 +328,7 @@ mira-light-bridge
 - [docs/mira-light-embodied-memory-integration-2026-04-09.md](./docs/mira-light-embodied-memory-integration-2026-04-09.md)
 - [docs/release-demo-readiness-checklist.md](./docs/release-demo-readiness-checklist.md)
 - [docs/release-live-execution-checklist.md](./docs/release-live-execution-checklist.md)
+- [docs/release-sync-from-mira-light-released-version-2026-04-09.md](./docs/release-sync-from-mira-light-released-version-2026-04-09.md)
 
 ## 仓库结构
 

@@ -1,0 +1,122 @@
+{
+  "schemaVersion": 1,
+  "kind": "mira-release-repo-deploy",
+  "repoRoot": ".",
+  "manifestPath": "deploy/repo-manifest.json",
+  "repoEnvTemplatePath": "deploy/repo.env.example",
+  "repoEnvFilePath": ".env.local",
+  "platformManifests": {
+    "dockerfile": "Dockerfile",
+    "dockerIgnore": ".dockerignore",
+    "renderBlueprint": "render.yaml",
+    "composeFile": "compose.yaml",
+    "procfile": "Procfile"
+  },
+  "containerProfiles": {
+    "default": "notification-router",
+    "optionalIntegrated": "mira-openclaw"
+  },
+  "profileSelectorEnv": "MIRA_DEPLOY_PROFILE",
+  "defaultProfile": "mira-openclaw",
+  "defaultCommands": {
+    "bootstrap": "npm run bootstrap",
+    "doctor": "npm run doctor",
+    "start": "npm start",
+    "deploy": "npm run deploy",
+    "deployAll": "npm run deploy:all",
+    "status": "npm run status",
+    "statusAll": "npm run status:all",
+    "health": "npm run health",
+    "healthAll": "npm run health:all",
+    "selfCheck": "npm run self-check",
+    "selfCheckAll": "npm run self-check:all",
+    "down": "npm run down",
+    "downAll": "npm run down:all"
+  },
+  "profiles": {
+    "notification-router": {
+      "runtimeDir": ".mira-runtime/notification-router",
+      "envTemplatePath": "deploy/service-notification-router/env.example",
+      "runtimeManifestPath": ".mira-runtime/notification-router/runtime-manifest.json",
+      "commands": {
+        "bootstrap": "npm run bootstrap:notification-router",
+        "deploy": "npm run deploy:notification-router",
+        "start": "npm run start:notification-router",
+        "status": "npm run status:notification-router",
+        "health": "npm run health:notification-router",
+        "selfCheck": "npm run self-check:notification-router",
+        "down": "npm run down:notification-router"
+      },
+      "health": {
+        "kind": "http-json",
+        "url": "http://127.0.0.1:3302/v1/health",
+        "expected": {
+          "ok": true,
+          "service": "notification-router"
+        }
+      }
+    },
+    "mira-openclaw": {
+      "runtimeDir": ".mira-runtime/mira-openclaw",
+      "envTemplatePath": "deploy/mira-openclaw/env.example",
+      "runtimeManifestPath": ".mira-runtime/mira-openclaw/runtime-manifest.json",
+      "requiredEnv": [],
+      "providerResolution": {
+        "mode": "host-default-or-repo-fallback",
+        "providerModeEnv": "MIRA_OPENCLAW_PROVIDER_MODE",
+        "supportedModes": [
+          "auto",
+          "host-only",
+          "repo-only"
+        ],
+        "hostConfigPathEnv": "OPENCLAW_CONFIG_PATH",
+        "hostProfileEnv": "MIRA_OPENCLAW_HOST_PROFILE",
+        "hostConfigPathOverrideEnv": "MIRA_OPENCLAW_HOST_CONFIG_PATH",
+        "discoveryOrder": [
+          "explicit-host-config",
+          "openclaw-cli",
+          "filesystem-candidates",
+          "repo-fallback"
+        ],
+        "workspaceProfileAutoDetect": true,
+        "fallbackEnv": [
+          "OPENAI_API_KEY",
+          "OPENAI_BASE_URL",
+          "MIRA_OPENCLAW_PROVIDER_API_KEY",
+          "MIRA_OPENCLAW_PROVIDER_ID",
+        "MIRA_OPENCLAW_PROVIDER_BASE_URL",
+        "MIRA_OPENCLAW_PROVIDER_API",
+        "MIRA_OPENCLAW_MODEL_ID",
+        "MIRA_OPENCLAW_MODEL_NAME",
+        "MIRA_OPENCLAW_HEALTH_TIMEOUT_MS"
+      ]
+      },
+      "optionalEnv": [
+        "OPENAI_API_KEY",
+        "OPENAI_BASE_URL",
+        "MIRA_OPENCLAW_PROVIDER_API_KEY",
+        "MIRA_OPENCLAW_PROVIDER_ID",
+        "MIRA_OPENCLAW_PROVIDER_BASE_URL",
+        "MIRA_OPENCLAW_PROVIDER_API",
+        "MIRA_OPENCLAW_MODEL_ID",
+        "MIRA_OPENCLAW_MODEL_NAME"
+      ],
+      "commands": {
+        "bootstrap": "npm run bootstrap:mira-openclaw",
+        "doctor": "npm run doctor:mira-openclaw",
+        "deploy": "npm run deploy:mira-openclaw",
+        "start": "npm run start:mira-openclaw",
+        "status": "npm run status:mira-openclaw",
+        "health": "npm run health:mira-openclaw",
+        "selfCheck": "npm run self-check:mira-openclaw",
+        "down": "npm run down:mira-openclaw"
+      },
+      "health": {
+        "kind": "composite",
+        "gatewayHost": "127.0.0.1",
+        "gatewayPort": 18890,
+        "sidecarHealthUrl": "http://127.0.0.1:3302/v1/health"
+      }
+    }
+  }
+}

@@ -1,0 +1,36 @@
+services:
+  mira-notification-router:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      MIRA_DEPLOY_PROFILE: notification-router
+      HOST: 0.0.0.0
+      PORT: 3302
+    ports:
+      - "3302:3302"
+    healthcheck:
+      test:
+        - CMD
+        - node
+        - -e
+        - fetch('http://127.0.0.1:3302/v1/health').then((response)=>process.exit(response.ok?0:1)).catch(()=>process.exit(1))
+      interval: 10s
+      timeout: 3s
+      retries: 5
+      start_period: 5s
+
+  mira-openclaw:
+    profiles:
+      - mira-openclaw
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      MIRA_DEPLOY_PROFILE: mira-openclaw
+      MIRA_OPENCLAW_GATEWAY_PORT: 18890
+      MIRA_OPENCLAW_ENABLE_NOTIFICATION_ROUTER: "true"
+      MIRA_OPENCLAW_PROVIDER_API_KEY: ${MIRA_OPENCLAW_PROVIDER_API_KEY:?set MIRA_OPENCLAW_PROVIDER_API_KEY in your shell or .env}
+    ports:
+      - "18890:18890"
+      - "3302:3302"

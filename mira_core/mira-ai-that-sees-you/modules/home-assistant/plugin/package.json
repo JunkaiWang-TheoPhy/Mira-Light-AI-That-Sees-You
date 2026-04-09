@@ -1,0 +1,9 @@
+{
+  "name": "@mira-release/home-assistant-module-plugin",
+  "private": true,
+  "license": "AGPL-3.0-only",
+  "type": "module",
+  "scripts": {
+    "test": "node --experimental-strip-types --test src/**/*.test.ts"
+  }
+}

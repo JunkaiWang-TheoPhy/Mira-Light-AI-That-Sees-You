@@ -139,6 +139,10 @@ The most important entry points are:
 - [tools/mira_light_bridge/README.md](./tools/mira_light_bridge/README.md)
 - [docs/release-startup-contract.md](./docs/release-startup-contract.md)
 
+For the imported AI / voice / memory additions, start with:
+
+- [docs/ai/README.md](./docs/ai/README.md)
+
 The lower-level hardware lab files and older bring-up scripts now live under:
 
 - [experiments/README.md](./experiments/README.md)
@@ -278,7 +282,6 @@ This repository should currently be understood as:
 
 It should not be misread as:
 
-- a final hardware product with every sensing loop fully completed
 - a simple demo that can be understood from one script alone
 - just a collection of lamp motion assets
 

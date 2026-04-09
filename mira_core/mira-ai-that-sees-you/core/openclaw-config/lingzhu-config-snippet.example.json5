@@ -1,0 +1,28 @@
+// Legacy Lingzhu plugin snippet kept only as operator reference.
+// The production path should now use the repo-owned live adapter instead of
+// exposing the bundled Lingzhu plugin directly.
+{
+  "plugins": {
+    "entries": {
+      "lingzhu": {
+        "enabled": false,
+        "config": {
+          "agentId": "main",
+          "systemPrompt": "<load release-safe prompt from lingzhu-system-prompt.txt>",
+          "sessionMode": "per_user",
+          "sessionNamespace": "mira-lingzhu-prod"
+        }
+      }
+    }
+  },
+  "miraLingzhuAdapter": {
+    "enabled": true,
+    "listenHost": "0.0.0.0",
+    "listenPort": 18789,
+    "openclawBaseUrl": "http://127.0.0.1:18790",
+    "agentId": "main",
+    "sessionMode": "per_user",
+    "sessionNamespace": "mira-lingzhu-prod",
+    "memoryStorePath": ".mira-runtime/mira-openclaw/var/mira-memory.sqlite"
+  }
+}

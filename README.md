@@ -131,6 +131,10 @@ camera input
 - [tools/mira_light_bridge/README.md](./tools/mira_light_bridge/README.md)
 - [docs/release-startup-contract.md](./docs/release-startup-contract.md)
 
+新增的 AI / voice / memory 相关入口说明见：
+
+- [docs/ai/README.md](./docs/ai/README.md)
+
 低层硬件实验与旧 bring-up 脚本现已统一收纳到：
 
 - [experiments/README.md](./experiments/README.md)
@@ -269,7 +273,6 @@ MIRA_LIGHT_SCENE_BUNDLE=booth_core bash scripts/start_local_stack.sh
 
 它当前不应被误读为：
 
-- 已经完成所有感知闭环的最终硬件产品
 - 只靠单个脚本即可理解的简单 demo
 - 仅仅是“台灯动作素材合集”
 

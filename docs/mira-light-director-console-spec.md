@@ -1,4 +1,4 @@
-# Mira Light 展位导演台说明
+# Mira Light: AI That Sees You 展位导演台说明
 
 ## 文档目的
 

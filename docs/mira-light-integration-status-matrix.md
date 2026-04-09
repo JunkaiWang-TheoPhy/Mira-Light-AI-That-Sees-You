@@ -1,4 +1,4 @@
-# Mira Light 集成状态矩阵
+# Mira Light: AI That Sees You 集成状态矩阵
 
 ## 文档目的
 

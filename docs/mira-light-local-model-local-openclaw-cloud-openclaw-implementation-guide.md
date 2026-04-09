@@ -1,4 +1,4 @@
-# Mira Light 接入本机大模型 / 本机 OpenClaw / 云端 OpenClaw 实施指南
+# Mira Light: AI That Sees You 接入本机大模型 / 本机 OpenClaw / 云端 OpenClaw 实施指南
 
 ## 文档目的
 

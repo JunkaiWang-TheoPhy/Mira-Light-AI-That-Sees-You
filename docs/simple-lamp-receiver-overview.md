@@ -1,4 +1,4 @@
-# Mira Light 最简接收器总览
+# Mira Light: AI That Sees You 最简接收器总览
 
 ## 文档目的
 

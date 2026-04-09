@@ -1,4 +1,4 @@
-# Mira Light 方案2代码交付与继续开发说明
+# Mira Light: AI That Sees You 方案2代码交付与继续开发说明
 
 ## 文档目的
 

@@ -1,4 +1,4 @@
-# Mira Light 设备连接排障说明
+# Mira Light: AI That Sees You 设备连接排障说明
 
 ## 文档目的
 

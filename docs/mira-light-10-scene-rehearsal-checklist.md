@@ -1,4 +1,4 @@
-# Mira Light 十个主场景排练 Checklist
+# Mira Light: AI That Sees You 十个主场景排练 Checklist
 
 ## 文档目的
 

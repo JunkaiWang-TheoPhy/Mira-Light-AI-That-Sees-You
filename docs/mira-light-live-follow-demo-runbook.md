@@ -1,4 +1,4 @@
-# Mira Light 真人跟随 Demo Runbook
+# Mira Light: AI That Sees You 真人跟随 Demo Runbook
 
 这份 runbook 对应仓库内第一版“单目视觉 -> 事件提取 -> runtime 跟随”的最短运行路径。
 

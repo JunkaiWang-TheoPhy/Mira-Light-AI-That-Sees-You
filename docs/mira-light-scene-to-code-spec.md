@@ -1,4 +1,4 @@
-# Mira Light 自然语言到代码功能翻译说明
+# Mira Light: AI That Sees You 自然语言到代码功能翻译说明
 
 ## 文档目的
 

@@ -1,4 +1,4 @@
-# Mira Light 路由器中转枢纽当前状态说明
+# Mira Light: AI That Sees You 路由器中转枢纽当前状态说明
 
 ## 文档目的
 

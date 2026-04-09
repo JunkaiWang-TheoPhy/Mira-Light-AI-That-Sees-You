@@ -1,4 +1,4 @@
-# Mira Light 最简接收器 ESP32 调用示例
+# Mira Light: AI That Sees You 最简接收器 ESP32 调用示例
 
 ## 1. 启动接收器
 

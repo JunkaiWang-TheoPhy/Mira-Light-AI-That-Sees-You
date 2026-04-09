@@ -1,4 +1,4 @@
-# Mira Light Offline Validation Stack
+# Mira Light: AI That Sees You Offline Validation Stack
 
 This document turns the current offline development order into a concrete local
 workflow that does not require the real lamp to be reachable.

@@ -1,4 +1,4 @@
-# Mira Light Bridge
+# Mira Light: AI That Sees You Bridge
 
 This directory contains the local bridge layer for the physical Mira Light lamp.
 

@@ -1,4 +1,4 @@
-# Mira Light 最简接收器 API 说明
+# Mira Light: AI That Sees You 最简接收器 API 说明
 
 ## 基地址
 

@@ -1,4 +1,4 @@
-# Mira Light 单摄像头 + 四自由度视觉开发详细说明
+# Mira Light: AI That Sees You 单摄像头 + 四自由度视觉开发详细说明
 
 ## 文档目的
 

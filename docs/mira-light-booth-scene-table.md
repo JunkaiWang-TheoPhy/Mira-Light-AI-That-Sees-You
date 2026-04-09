@@ -1,4 +1,4 @@
-# Mira Light 展位场景表
+# Mira Light: AI That Sees You 展位场景表
 
 ## 文档目的
 

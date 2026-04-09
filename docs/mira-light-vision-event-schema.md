@@ -1,4 +1,4 @@
-# Mira Light 视觉事件 JSON Schema 说明
+# Mira Light: AI That Sees You 视觉事件 JSON Schema 说明
 
 ## 文档目的
 

@@ -1,4 +1,4 @@
-# Mira Light 操作指南
+# Mira Light: AI That Sees You 操作指南
 
 这组文档用于集中放置 `Mira Light` 当前和现场操作直接相关的精简说明。
 

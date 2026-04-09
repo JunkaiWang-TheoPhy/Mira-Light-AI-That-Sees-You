@@ -18,7 +18,7 @@ An embodied AI companion that notices you before you ask.
 
 ## Overview
 
-Mira Light is an embodied AI interaction project built around a four-DOF lamp.
+Mira Light: AI That Sees You is an embodied AI interaction project built around a four-DOF lamp.
 It explores a simple shift in interaction design: instead of waiting for an
 explicit prompt, the system notices presence, interprets movement and context,
 and responds through motion, direction, light, and rhythm.

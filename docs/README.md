@@ -1,4 +1,4 @@
-# Mira Light Release Docs
+# Mira Light: AI That Sees You Release Docs
 
 ## 目的
 

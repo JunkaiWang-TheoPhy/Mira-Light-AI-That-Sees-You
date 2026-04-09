@@ -1,4 +1,4 @@
-# Mira Light Embodied Memory Integration
+# Mira Light: AI That Sees You Embodied Memory Integration
 
 ## Purpose
 

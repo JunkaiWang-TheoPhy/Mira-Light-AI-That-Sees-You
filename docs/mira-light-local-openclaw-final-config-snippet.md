@@ -1,4 +1,4 @@
-# Mira Light 本机 OpenClaw 最终可粘贴配置片段
+# Mira Light: AI That Sees You 本机 OpenClaw 最终可粘贴配置片段
 
 ## 文档目的
 

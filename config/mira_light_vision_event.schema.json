@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://mira-light.local/schemas/mira_light_vision_event.schema.json",
-  "title": "Mira Light Vision Event",
+  "title": "Mira Light: AI That Sees You Vision Event",
   "type": "object",
   "additionalProperties": false,
   "required": [

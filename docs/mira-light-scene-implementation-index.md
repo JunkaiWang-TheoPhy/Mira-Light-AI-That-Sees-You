@@ -1,4 +1,4 @@
-# Mira Light 十个主场景代码实现说明
+# Mira Light: AI That Sees You 十个主场景代码实现说明
 
 ## 文档目的
 

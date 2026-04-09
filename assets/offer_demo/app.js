@@ -5,7 +5,7 @@
   const confettiLayer = document.getElementById("confetti-layer");
 
   const params = new URLSearchParams(window.location.search);
-  const candidate = (params.get("candidate") || "Mira Light").trim();
+  const candidate = (params.get("candidate") || "Mira Light: AI That Sees You").trim();
   candidateTitle.textContent = candidate;
 
   const now = new Date();

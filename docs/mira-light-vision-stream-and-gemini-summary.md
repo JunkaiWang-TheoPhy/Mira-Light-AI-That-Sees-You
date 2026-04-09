@@ -1,4 +1,4 @@
-# Mira Light 图像流与 Gemini 接入现状说明
+# Mira Light: AI That Sees You 图像流与 Gemini 接入现状说明
 
 ## 文档目的
 

@@ -1,4 +1,4 @@
-# Mira Light 本机 OpenClaw 接入验收清单
+# Mira Light: AI That Sees You 本机 OpenClaw 接入验收清单
 
 ## 文档目的
 

@@ -1,4 +1,4 @@
-# Mira Light 路由器中转枢纽架构说明
+# Mira Light: AI That Sees You 路由器中转枢纽架构说明
 
 ## 文档目的
 

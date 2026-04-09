@@ -1,4 +1,4 @@
-# Mira Light Mock 排练指南
+# Mira Light: AI That Sees You Mock 排练指南
 
 ## 文档目的
 

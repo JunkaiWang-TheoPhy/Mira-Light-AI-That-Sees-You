@@ -1,4 +1,4 @@
-# Mira Light 接入本机 OpenClaw 逐步操作手册
+# Mira Light: AI That Sees You 接入本机 OpenClaw 逐步操作手册
 
 ## 文档目的
 

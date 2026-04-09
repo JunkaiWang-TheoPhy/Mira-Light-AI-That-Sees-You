@@ -1,4 +1,4 @@
-# Mira Light 路由器中转枢纽实施指南
+# Mira Light: AI That Sees You 路由器中转枢纽实施指南
 
 ## 文档目的
 

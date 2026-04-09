@@ -1,4 +1,4 @@
-# Mira Light 路由器中转枢纽接入交付包
+# Mira Light: AI That Sees You 路由器中转枢纽接入交付包
 
 ## 文档目的
 

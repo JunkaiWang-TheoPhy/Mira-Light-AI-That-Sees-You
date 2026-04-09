@@ -1,4 +1,4 @@
-# Mira Light 本机 OpenClaw 插件安装与配置说明
+# Mira Light: AI That Sees You 本机 OpenClaw 插件安装与配置说明
 
 ## 文档目的
 

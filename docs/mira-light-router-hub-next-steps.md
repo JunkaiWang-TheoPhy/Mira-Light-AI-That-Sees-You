@@ -1,4 +1,4 @@
-# Mira Light 路由器中转枢纽下一步执行清单
+# Mira Light: AI That Sees You 路由器中转枢纽下一步执行清单
 
 ## 文档目的
 

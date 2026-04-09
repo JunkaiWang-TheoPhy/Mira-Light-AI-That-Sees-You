@@ -1,4 +1,4 @@
-# Mira Light 方案2实现审计记录
+# Mira Light: AI That Sees You 方案2实现审计记录
 
 ## 文档目的
 

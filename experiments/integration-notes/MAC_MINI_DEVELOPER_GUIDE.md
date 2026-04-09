@@ -22,7 +22,7 @@ Mac mini **不要直接处理 UART**，只需要通过 TCP 连到 RDK X5：
 ### Servo Gateway
 
 ```bash
-python3 /home/sunrise/Desktop/bus_servo_gateway.py --uart-device /dev/ttyS1 --baudrate 115200
+python3 experiments/bus-servo/bus_servo_gateway.py --uart-device /dev/ttyS1 --baudrate 115200
 ```
 
 说明：
@@ -36,7 +36,7 @@ python3 /home/sunrise/Desktop/bus_servo_gateway.py --uart-device /dev/ttyS1 --ba
 推荐先用不转发二进制帧的模式，Mac mini 侧更清爽：
 
 ```bash
-python3 /home/sunrise/Desktop/uart3_led_gateway.py --uart-device /dev/ttyS3 --baudrate 115200 --no-binary
+python3 experiments/uart3-led/uart3_led_gateway.py --uart-device /dev/ttyS3 --baudrate 115200 --no-binary
 ```
 
 说明：
@@ -395,4 +395,3 @@ printf '...\n' | nc <RDK_X5_IP> 9528
   - `ACK,...`
   - `READY,...`
   - optional `BINARY,...`
-

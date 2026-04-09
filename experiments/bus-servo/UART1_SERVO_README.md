@@ -19,19 +19,19 @@ Default UART settings:
 Send one full raw packet:
 
 ```bash
-python3 /home/sunrise/Desktop/send_uart1_servo_cmd.py raw "#003P1500T1000!"
+python3 experiments/bus-servo/send_uart1_servo_cmd.py raw "#003P1500T1000!"
 ```
 
 Send one generated packet:
 
 ```bash
-python3 /home/sunrise/Desktop/send_uart1_servo_cmd.py single 3 1500 1000
+python3 experiments/bus-servo/send_uart1_servo_cmd.py single 3 1500 1000
 ```
 
 Send one multi-servo packet:
 
 ```bash
-python3 /home/sunrise/Desktop/send_uart1_servo_cmd.py raw "{#001P2000T1000!#003P0833T2000!}"
+python3 experiments/bus-servo/send_uart1_servo_cmd.py raw "{#001P2000T1000!#003P0833T2000!}"
 ```
 
 If your lower controller does not want a line ending, append:

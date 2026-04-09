@@ -123,6 +123,7 @@ joints:
 ├── config/                      profiles, scene bundles, and event schemas
 ├── deploy/                      repo manifest and environment templates
 ├── docs/                        release docs, runbooks, handoff notes, and source PDFs
+├── experiments/                 RDK X5 UART, PWM, GPIO, and early camera lab scripts
 ├── scripts/                     runtime, scenes, receiver, console, diagnostics, and startup scripts
 ├── tests/                       lightweight verification scripts
 ├── tools/mira_light_bridge/     local bridge and OpenClaw plugin
@@ -137,6 +138,10 @@ The most important entry points are:
 - [scripts/track_target_event_extractor.py](./scripts/track_target_event_extractor.py)
 - [tools/mira_light_bridge/README.md](./tools/mira_light_bridge/README.md)
 - [docs/release-startup-contract.md](./docs/release-startup-contract.md)
+
+The lower-level hardware lab files and older bring-up scripts now live under:
+
+- [experiments/README.md](./experiments/README.md)
 
 ## Quick Start
 

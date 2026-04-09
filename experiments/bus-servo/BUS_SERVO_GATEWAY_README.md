@@ -15,19 +15,19 @@
 Dry-run mode only validates packets from Mac mini and replies `OK` or `ERR`.
 
 ```bash
-python3 /home/sunrise/Desktop/bus_servo_gateway.py --dry-run
+python3 experiments/bus-servo/bus_servo_gateway.py --dry-run
 ```
 
 When the lower controller is ready, switch to UART forwarding:
 
 ```bash
-python3 /home/sunrise/Desktop/bus_servo_gateway.py --uart-device /dev/ttyS1 --baudrate 115200
+python3 experiments/bus-servo/bus_servo_gateway.py --uart-device /dev/ttyS1 --baudrate 115200
 ```
 
 If the lower controller requires a line ending on UART, add:
 
 ```bash
-python3 /home/sunrise/Desktop/bus_servo_gateway.py --uart-device /dev/ttyS1 --baudrate 115200 --line-ending lf
+python3 experiments/bus-servo/bus_servo_gateway.py --uart-device /dev/ttyS1 --baudrate 115200 --line-ending lf
 ```
 
 ## Send From Mac mini

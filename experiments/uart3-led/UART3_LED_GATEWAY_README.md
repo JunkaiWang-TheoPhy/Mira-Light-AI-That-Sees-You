@@ -21,19 +21,19 @@ Default UART settings:
 Real UART forwarding:
 
 ```bash
-python3 /home/sunrise/Desktop/uart3_led_gateway.py
+python3 experiments/uart3-led/uart3_led_gateway.py
 ```
 
 Validation only, without writing to UART:
 
 ```bash
-python3 /home/sunrise/Desktop/uart3_led_gateway.py --dry-run
+python3 experiments/uart3-led/uart3_led_gateway.py --dry-run
 ```
 
 If you want to suppress binary UART frames:
 
 ```bash
-python3 /home/sunrise/Desktop/uart3_led_gateway.py --no-binary
+python3 experiments/uart3-led/uart3_led_gateway.py --no-binary
 ```
 
 ## Send From Mac mini

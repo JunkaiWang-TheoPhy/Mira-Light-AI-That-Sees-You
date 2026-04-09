@@ -29,67 +29,67 @@ Remove the loopback wire first.
 All 40 LEDs white full brightness:
 
 ```bash
-python3 /home/sunrise/Desktop/send_uart3_led_cmd.py all 255 255 255 255
+python3 experiments/uart3-led/send_uart3_led_cmd.py all 255 255 255 255
 ```
 
 All LEDs red half brightness:
 
 ```bash
-python3 /home/sunrise/Desktop/send_uart3_led_cmd.py all 255 0 0 128
+python3 experiments/uart3-led/send_uart3_led_cmd.py all 255 0 0 128
 ```
 
 Outer ring LED 0 green:
 
 ```bash
-python3 /home/sunrise/Desktop/send_uart3_led_cmd.py one 0 0 0 255 0 200
+python3 experiments/uart3-led/send_uart3_led_cmd.py one 0 0 0 255 0 200
 ```
 
 Inner ring LED 5 purple:
 
 ```bash
-python3 /home/sunrise/Desktop/send_uart3_led_cmd.py one 1 5 255 0 255 255
+python3 experiments/uart3-led/send_uart3_led_cmd.py one 1 5 255 0 255 255
 ```
 
 Set global brightness:
 
 ```bash
-python3 /home/sunrise/Desktop/send_uart3_led_cmd.py bri 50
+python3 experiments/uart3-led/send_uart3_led_cmd.py bri 50
 ```
 
 Turn all LEDs off:
 
 ```bash
-python3 /home/sunrise/Desktop/send_uart3_led_cmd.py off
+python3 experiments/uart3-led/send_uart3_led_cmd.py off
 ```
 
 Set touch threshold:
 
 ```bash
-python3 /home/sunrise/Desktop/send_uart3_led_cmd.py thr 300
+python3 experiments/uart3-led/send_uart3_led_cmd.py thr 300
 ```
 
 Ask device to print help:
 
 ```bash
-python3 /home/sunrise/Desktop/send_uart3_led_cmd.py helpcmd --read-reply
+python3 experiments/uart3-led/send_uart3_led_cmd.py helpcmd --read-reply
 ```
 
 Continuously listen to data returned by the lower controller:
 
 ```bash
-python3 /home/sunrise/Desktop/listen_uart3_led.py
+python3 experiments/uart3-led/listen_uart3_led.py
 ```
 
 If you also want to see raw bytes in hex:
 
 ```bash
-python3 /home/sunrise/Desktop/listen_uart3_led.py --hex
+python3 experiments/uart3-led/listen_uart3_led.py --hex
 ```
 
 If the lower controller returns text, you can print it with:
 
 ```bash
-python3 /home/sunrise/Desktop/send_uart3_led_cmd.py all 255 255 255 255 --read-reply
+python3 experiments/uart3-led/send_uart3_led_cmd.py all 255 255 255 255 --read-reply
 ```
 
 If your lower controller does not need a line ending, append:

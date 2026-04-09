@@ -28,7 +28,7 @@ Before testing:
 ## Example Commands
 
 ```bash
-python3 /home/sunrise/Desktop/test_uart3_loopback.py
-python3 /home/sunrise/Desktop/test_uart3_loopback.py --baudrate 921600
-python3 /home/sunrise/Desktop/test_uart3_loopback.py --count 5
+python3 experiments/uart3-led/test_uart3_loopback.py
+python3 experiments/uart3-led/test_uart3_loopback.py --baudrate 921600
+python3 experiments/uart3-led/test_uart3_loopback.py --count 5
 ```

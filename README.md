@@ -115,6 +115,7 @@ camera input
 ├── config/                      profile、scene bundles 与事件 schema
 ├── deploy/                      repo manifest 与环境模板
 ├── docs/                        发布文档、runbook、handoff 与源 PDF
+├── experiments/                 RDK X5 串口、UART、PWM 与早期摄像头实验脚本
 ├── scripts/                     runtime、scene、receiver、console、诊断与启动脚本
 ├── tests/                       轻量验证脚本
 ├── tools/mira_light_bridge/     本地 bridge 与 OpenClaw 插件
@@ -129,6 +130,10 @@ camera input
 - [scripts/track_target_event_extractor.py](./scripts/track_target_event_extractor.py)
 - [tools/mira_light_bridge/README.md](./tools/mira_light_bridge/README.md)
 - [docs/release-startup-contract.md](./docs/release-startup-contract.md)
+
+低层硬件实验与旧 bring-up 脚本现已统一收纳到：
+
+- [experiments/README.md](./experiments/README.md)
 
 ## 快速开始
 
